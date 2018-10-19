@@ -1,0 +1,54 @@
+Pumaサーバ起動
+ruby app.rb -o $IP -p $PORT
+
+サーバ停止
+ctrl + C
+
+
+
+◼️my sql
+
+データベースサーバ起動
+mysql> sudo service mysqld start
+
+データベースサーバ起動状態確認
+mysql> sudo service mysqld status
+
+データベースサーバ停止
+mysql> sudo service mysqld stop
+
+データベースサーバ接続
+mysql> mysql -u root
+
+データベースサーバ切断
+mysql> exit
+
+文字化け対策
+mysql> sed -e "/utf8/d" -e "/client/d" -e "/^\[mysqld_safe\]$/i character-set-server=utf8\n\n[client]\ndefault-character-set=utf8" /etc/my.cnf |sudo tee /etc/my.cnf
+
+DB作成
+mysql> CREATE DATABASE xxxxxx;
+
+DB一覧
+mysql> show databases;
+
+操作DBを選ぶ
+mysql> USE xxxxxx;
+
+テーブル作成(createファイル実行)
+mysql> source ~/environment/xxxx/xxxx.sql
+
+テーブル一覧
+mysql> show tables;
+
+テーブルの設計内容確認
+mysql> describe books;
+
+テーブル削除（確認なし）
+mysql> DROP TABLE xxxdbname.xxxtablename;
+
+レコード追加
+mysql> INSERT INTO dbname.tablename (column1, column2) VALUES ("xxtext", xxvalue);
+
+レコード確認：全カラム
+mysql> SELECT * FROM dbname.tablename;
